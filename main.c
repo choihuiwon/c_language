@@ -29,6 +29,39 @@ void SelectTel(){
 	}
 }
 
+void DeleteTel(){
+	char name[30];
+	printf("delete name : "); scanf("%s",name);
+	int i;
+	for(i=0; i<idx; i++){
+		if(strcmp(arr[i].name, name)==0){
+			int j;
+			for(j=i; j<idx-1; j++)
+				arr[j] = arr[j+1];
+			idx--;
+			printf("delete complete!\n");
+			return;
+		}
+	} 
+	printf("nothing to delete\n");
+}
+
+void UpdateTel(){
+	char name[30];
+	printf("update name : "); scanf("%s", name);
+	int i;
+	for(i=0; i<idx; i++){
+		if(strcmp(arr[i].name, name)==0){
+			printf("update start!\n");
+			char tel[50];
+			printf("tel : "); scanf("%s", tel);
+			arr[i].tel = tel;
+			printf("update complete!\n");
+			return;
+		}
+	}
+}
+
 int main(void){
 	int menu;
 	while(1){
