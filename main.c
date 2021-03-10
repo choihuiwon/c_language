@@ -9,6 +9,26 @@ enum menu{INSERT=1, SELECT, DELETE, UPDATE};
 
 Tel arr[10];
 
+int idx=0;
+
+void InsertTel(){
+	Tel t;
+	printf("name : "); scanf("%s", t.name);
+	printf("tel : "); scanf("%s", t.tel);
+	arr[idx++] = t;
+	printf("insert complete!);
+}
+
+void SelectTel(){
+	char name[30];
+	printf("search name : "); scanf("%s", name);
+	int i;
+	for(i=0; i<idx; i++){
+		if(strcmp(arr[i].name, name)==0)
+			printf("%s : %s\n", arr[i].name, arr[i].tel);
+	}
+}
+
 int main(void){
 	int menu;
 	while(1){
