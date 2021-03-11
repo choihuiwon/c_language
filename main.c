@@ -6,11 +6,17 @@ typedef struct{
 	char tel[50];
 }Tel;
 
-enum menu{INSERT=1, SELECT, DELETE, UPDATE};
+enum menu{INSERT=1, SELECT, DELETE, UPDATE, PRINTALL};
 
 Tel arr[10];
 
 int idx=0;
+
+void PrintAll(){
+	int i;
+	for(i=0; i<idx; i++)
+		printf("%s : %s\n", arr[i].name, arr[i].tel);
+}
 
 void InsertTel(){
 	Tel t;
@@ -67,13 +73,14 @@ int main(void){
 	int menu;
 	while(1){
 		printf("1.Insert\n"); printf("2.Select\n");
-		printf("3.Delete\n"); printf("4.Update\n");
+		printf("3.Delete\n"); printf("4.Update\n"); printf("PrintAll\n");
 		printf("Select menu no(0:exit) : "); scanf("%d", &menu);
 		if(menu == 0) break;
 		if(menu == 1) InsertTel();
 		else if(menu ==2) SelectTel();
 		else if(menu == 3) DeleteTel();
 		else if(menu == 4) UpdateTel();
+		else if(menu == 5) PrintAll();
 		else printf("wrong meno no type!\n");
 	}
 
